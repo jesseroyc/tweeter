@@ -1,24 +1,16 @@
-#tweet-container {
-	position: relative;
-	top: 10em;
-}
-
 #top-styling-of-tweet {
-	border: 1px solid #c9c9c9;
+	border: 1px solid #c6c6c6;
 	border-radius: 3px;
-	background: #e8e8e8;
+	background: #dedede;
 	position: absolute;
-	right:0em;
-	top:-2em;
 	width: 26em;
 	height: 4em;
 }
 
 .avatar {
 	padding: 0.4em;
-	margin: auto;
 	float: left;
-	border-radius: 0.5em;
+	border-radius: 0.75em;
 }
 
 .username {
@@ -38,7 +30,7 @@
 	background: white;
 	position: absolute;
 	right:-0.01em;
-	top: 1.9em;
+	top: 3.9em;
 	width: 26em;
 	height: 4em;
 }
@@ -54,7 +46,7 @@
 	background: white;
 	position: absolute;
 	right:-0.01em;
-	top: 5em;
+	top: 7em;
 	width: 26em;
 	height: 1.75em;
 }
@@ -63,7 +55,7 @@
 	padding:0.2em;
 }
 
-div:hover {
+section:hover {
   -webkit-filter: brightness(0.95);
   -moz-filter: brightness(0.95);
   filter: brightness(0.95);
