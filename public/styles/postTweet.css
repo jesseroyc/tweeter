@@ -1,0 +1,40 @@
+#post-new-tweet {
+background: #dedede;
+margin: 1em auto;
+border-radius: 3px; 
+border: 1px solid #c6c6c6;
+padding: 1em;
+min-height: 120px; 
+
+}
+
+#compose-new-tweet-header-underline {
+width: 100%;	
+border-bottom: 2px solid;
+margin-bottom: 0.3em;
+
+}
+
+
+#new-tweet-textarea  {
+width: 100%;
+margin-top: 1em;
+margin: auto;
+border: 1px solid #c6c6c6;
+padding-top: 0.4em;
+padding-left: 0.4em;
+
+}
+
+#submit-new-tweet-button {
+background: #f4f4f4;
+-webkit-border-radius: 0.3125em; 
+border: 1px solid #c6c6c6;
+padding: 0.125em 1em; 
+
+}
+
+#char-counter {
+float: right;
+
+}

@@ -1,0 +1,71 @@
+.tweet {
+background: #dedede;
+border-radius: 3px;
+border: 1px solid #c6c6c6;
+margin: auto;
+display: block;
+}
+
+.tweet .header {
+background: #E2E2E2;
+height: 3.0em;
+margin: 0.5em 0.5em;
+
+}
+
+.image {
+float: left;
+width: 3em;
+height: 3em;
+margin: auto;
+border: 1px solid black;
+border-radius: 0.1em;
+
+}
+
+
+.at_username {
+float: right;
+margin: 0.5em;
+color: #aaaaaa;
+
+}
+
+.full_name {
+margin: auto;
+font-size: 1.3em;
+
+}
+
+.content {
+background: #f7f7f7;
+padding: 0.5em;
+margin:auto;
+}
+
+.tweet_text {
+margin: auto;
+padding: 0.5em 0em;
+font-size: 13px;
+
+}
+
+.footer {
+background: #f7f7f7;
+border-top: 1px solid #ededed;
+padding: 0.5em;
+margin: auto;
+
+}
+
+.time_stamp {
+font-size: 10px;
+margin:auto;
+
+}
+
+.tweet:hover {
+  -webkit-filter: brightness(0.95);
+  -moz-filter: brightness(0.95);
+  filter: brightness(0.95);
+}
