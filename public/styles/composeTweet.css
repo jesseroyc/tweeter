@@ -1,36 +1,54 @@
 #post-new-tweet {
-background: #dedede;
-top: -0.5em;
-margin: 1em auto;
-border-radius: 3px; 
-border: 1px solid #c6c6c6;
-padding: 1em;
-min-height: 120px; 
+  background: #dedede;
+  top: -0.5em;
+  border-radius: 3px; 
+  border: 1px solid #c6c6c6;
+  padding: 1em;
 }
 
 #compose-new-tweet-header-underline {
-width: 100%;	
-border-bottom: 2px solid;
-margin-bottom: 0.3em;
+  width: 100%;	
+  border-bottom: 2px solid;
+  margin-bottom: 0.3em;
 }
 
 
 #new-tweet-textarea  {
-width: 100%;
-margin-top: 1em;
-margin: auto;
-border: 1px solid #c6c6c6;
-padding-top: 0.4em;
-padding-left: 0.4em;
+  width: 100%;
+  margin-top: 1em;
+  margin: auto;
+  border: 1px solid #c6c6c6;
+  padding-top: 0.4em;
+  padding-left: 0.4em;
 }
 
 #submit-new-tweet-button {
-background: #f4f4f4;
--webkit-border-radius: 0.3125em; 
-border: 1px solid #c6c6c6;
-padding: 0.125em 1em; 
+  background: #f4f4f4;
+  -webkit-border-radius: 0.3125em; 
+  border: 1px solid #c6c6c6;
+  padding: 0.125em 1em; 
 }
 
 #char-counter {
-float: right;
+  float: right;
+}
+
+.compose {
+	top: 1em;
+	right: 1em;
+	width: 6em;
+	height: 3em;
+	float: right;
+	border: 2px solid #369664;
+	color: #369664;
+	border-radius: 4px;
+	background: #FCFCFC;
+}
+
+.btnName {
+	font-weight: bold;
+	position: absolute;
+	padding: 0.83em 0.85em;
+	font-size: 100%;
+	margin: auto;
 }

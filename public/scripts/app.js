@@ -1,122 +1,161 @@
 $(document).ready(function (){
 
-	// Fake data taken from tweets.json
-	const data = [
-	  {
-	    "user": {
-	      "name": "Newton",
-	      "avatars": {
-	        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-	        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-	        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-	       },
-	      "handle": "@SirIsaac"
-	    },
-	    "content": {
-	      "text": "If I have seen further it is by standing on the shoulders of giants"
-	    },
-	    "created_at": 1461116232227,
-	  },
-	  {
-	    "user": {
-	      "name": "Descartes",
-	      "avatars": {
-	        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-	        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-	        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-	      },
-	      "handle": "@rd" },
-	    "content": {
-	      "text": "Je pense , donc je suis"
-	    },
-	    "created_at": 1461113959088
-	  },
-	  {
-	    "user": {
-	      "name": "Johann von Goethe",
-	      "avatars": {
-	        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-	        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-	        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-	      },
-	      "handle": "@johann49"
-	    },
-	    "content": {
-	      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-	    },
-	    "created_at": 1461113796368
-	  }
-	];
+	formId = '#submit-tweet';
+	formMessage = '#new-tweet-textarea[name|="text"]';
 
-	renderTweets(data);
+	slideComposeOnClick();
+
+	$(formId).on('submit', function(event) {
+
+		event.preventDefault();
+
+		if($(formMessage).val().length > 140) {
+			alert(`Message is longer than 140 characters, ${formMessage.length}.`)
+			return 0;
+		}
+		if($(formMessage).val() === "") {
+			alert(`Please write a message before attempting to tweet!`)
+			return 0;
+		}
+		if($(formMessage).val() == false) {
+			alert(`Message is invalid.`)
+			return 0;
+		}
+
+		submitTweetsClearTextField(formId, formMessage);
+   		updateTweets(formId);
+	});
 
 
+	updateTweets(formId);
 
+	function slideComposeOnClick() {
+		$( ".compose" ).click( function() {
+			event.preventDefault();
+    		$("#post-new-tweet").slideToggle({duration: 500});
+  		});
+	}
 
-	function renderTweets(tweets) {
+	function submitTweetsClearTextField(formId, formMessage) {
 
+    	$.ajax({
+			url: $(formId).attr('action'),
+			type: 'POST',
+			data: $(formId).serialize(),
+		});
 
-		tweets.forEach( (tweet) => {
-			createTweetElement(tweet);
+    	$(formMessage).val("");
+	}
 
-			//OFFSET CSS TO WIN
-			
+	function updateTweets (formId) {
+		
+	   	$.ajax({
+			url: $(formId).attr('action'),
+			method: 'GET',
+			success: function (tweets) {
+				renderTweets(tweets);
+				console.log(tweets.length, tweets);
+			}
 		});
 	}
 
-	function createTweetElement(tweet) {
+	function renderTweets(tweets) {
 
-		const tweetElementToBeRenderedBy = document.getElementById( 'tweet-container' ); 
-	    tweetElementToBeRenderedBy.insertAdjacentHTML( 'afterbegin', buildHtmlTweetTemplate(tweet) );
+		let tweetElementHtml;
+		let positionIncrementer = 0;
+		let reverseOrderOfTweets = tweets.reverse();
 
-		if ( $("#tweet-container").find(convertHandle(tweet.user.handle)).length == 0 ) {
-            console.log(`A user specific tweet element was created for ${tweet.user.name}!`);;
-			return undefined;
+		tweets.forEach( (tweet) => {
 
+			tweetElementHtml = createTweetElement(tweet);
 
-   		} else {
-            console.log(`A user specific tweet element failed to be found after creation...`);
-			return undefined;
+			renderPredefinedCSS(tweetElementHtml);
+			dynamicallyRenderExtraCSS(tweet, positionIncrementer);
+			growBackgroundCanvas(positionIncrementer);
 
-		}
+			positionIncrementer ++;	
+		});
+
+		return positionIncrementer;
 	}
 
-	function buildHtmlTweetTemplate (tweet) {
+	function createTweetElement (tweet) {
 
 		let htmlStr = "";
-	    	htmlStr += `<div class="${convertHandle(tweet.user.handle)}">`
-			htmlStr += `<div id="top-styling-of-tweet">`;
-		    htmlStr += `<img class="avatar" src="${tweet.user.avatars.small}">`;
-		    htmlStr += `<h1 class="username">`;
-		    htmlStr += `${tweet.user.name}`;
-		    htmlStr += `</h1>`;
-		    htmlStr += `<p class="tweeter-handle">`;
-		    htmlStr += `${tweet.user.handle}`;        
-		    htmlStr += `</p>`;
-		    htmlStr += `</div>`;
-		    htmlStr += `<div id="centre-styling-of-tweet">`;
-		    htmlStr += `<p class="tweet-message">`;
-		    htmlStr += `${tweet.content.text}`;        
-		    htmlStr += `</p>`;
-		    htmlStr += `</div>`;
-		    htmlStr += `<div id="bottom-styling-of-tweet">`;
-		    htmlStr += `<p class="timestamp">`;
-		    htmlStr += `${tweet.created_at}`;
-		    htmlStr += `</p>`;
-		    htmlStr += `</div>`;
-	    	htmlStr += `</div>`;
+
+    	htmlStr += `<section class="${tweet.user.handle.substr(1)}">`
+		htmlStr += `<div id="top-styling-of-tweet">`;
+	    htmlStr += `<img class="avatar" src="${tweet.user.avatars.small}">`;
+	    htmlStr += `<h1 class="username">`;
+	    htmlStr += `${tweet.user.name}`;
+	    htmlStr += `</h1>`;
+	    htmlStr += `<p class="tweeter-handle">`;
+	    htmlStr += `${tweet.user.handle}`;        
+	    htmlStr += `</p>`;
+	    htmlStr += `</div>`;
+	    htmlStr += `<div id="centre-styling-of-tweet">`;
+	    htmlStr += `<p class="tweet-message">`;
+	    htmlStr += `${escape(tweet.content.text)}`;        
+	    htmlStr += `</p>`;
+	    htmlStr += `</div>`;
+	    htmlStr += `<div id="bottom-styling-of-tweet">`;
+	    htmlStr += `<p class="timestamp">`;
+	    htmlStr += generateConvenientTime(tweet);
+	    htmlStr += `</p>`;
+	    htmlStr += `</div>`;
+    	htmlStr += `</section>`;
 
 	    return htmlStr;
 	}
 
-	function convertHandle (userHandleOrId) {
-;
-	if(userHandleOrId.charAt(0) === '@') {
-		userHandleOrId = '.' + userHandleOrId.substr(1);
-	} else {
-		userHandleOrId = '@' + userHandleOrId.substr(1);
+	function generateConvenientTime (tweet) {
+	    let timePosted = Math.floor((Date.now() / 1000) - (tweet.created_at / 1000));
+		let timeText = `Updated ${timePosted} seconds ago`;
+
+		if (timePosted > 3153600) {
+			timeText = `Updated ${Math.floor(timePosted / 3153600)} years ago`;		
+		} else if (timePosted > 8640) {
+			timeText = `Updated ${Math.floor(timePosted / 8640)} days ago`;
+		} else if (timePosted > 360) {
+			timeText = `Updated ${Math.floor(timePosted / 360)} hours ago`;
+		} else if (timePosted > 60) {
+			timeText = `Updated ${Math.floor(timePosted / 60)} minutes ago`;
+		}
+
+		return timeText;
 	}
 
-	return userHandleOrId;
+	function renderPredefinedCSS (htmlToRender) {
+		const tweetElementToBeRenderedBy = document.getElementById( 'tweet-container' ); 
+	    tweetElementToBeRenderedBy.insertAdjacentHTML( 'afterbegin', htmlToRender);
+	}
+
+	function dynamicallyRenderExtraCSS (tweet, cssIncrementerRefrence) {
+
+		let scaledTweetPostion = cssIncrementerRefrence * 10;
+
+	    $("<style>").prop("type", "text/css")
+     		.html( `${convertHandle(tweet.user.handle)} {\
+        			position: relative;\
+        			top: ${scaledTweetPostion}em;\
+     			    }`)
+     		.appendTo("head");
+	}
+
+	function convertHandle (userHandleOrId) {
+		return userHandleOrId = '.' + userHandleOrId.substr(1);
+	}
+
+	function growBackgroundCanvas (cssIncrementerRefrence) {
+
+		let scaledCanvasHeight = cssIncrementerRefrence * 21;
+
+		$('main').css('height', `${scaledCanvasHeight}em`);
+	}
+
+	function escape(str) {
+  		var div = document.createElement('div');
+  		div.appendChild(document.createTextNode(str));
+  		return div.innerHTML;
 	}
 });

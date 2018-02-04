@@ -36,6 +36,7 @@ $(function() {
       return this;
 
     },
+    
     allowed:   undefined,
     length:    undefined,
     remaining: undefined,

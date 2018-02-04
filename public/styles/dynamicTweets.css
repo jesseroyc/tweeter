@@ -1,4 +1,5 @@
 #top-styling-of-tweet {
+	padding: 0.3em;
 	border: 1px solid #c6c6c6;
 	border-radius: 3px;
 	background: #dedede;
@@ -8,13 +9,15 @@
 }
 
 .avatar {
-	padding: 0.4em;
 	float: left;
 	border-radius: 0.75em;
+	border: 1px solid #c6c6c6;
 }
 
 .username {
 	padding-top: 0.2em;
+	padding-left: 0.2em;
+	font-size: 180%;
 	margin: auto;
 	float: left;
 }
@@ -32,7 +35,8 @@
 	right:-0.01em;
 	top: 3.9em;
 	width: 26em;
-	height: 4em;
+	height: 4.5em;
+	word-wrap: break-word;
 }
 
 .tweet-message {
@@ -41,12 +45,12 @@
 }
 
 #bottom-styling-of-tweet {
-    border: 1px solid #c9c9c9;
+    border: 1px solid #cccccc;
 	border-radius: 3px;
-	background: white;
+	background: #f8f8f8;
 	position: absolute;
 	right:-0.01em;
-	top: 7em;
+	top: 7.7em;
 	width: 26em;
 	height: 1.75em;
 }

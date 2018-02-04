@@ -1,8 +1,6 @@
 nav {
   position: relative;
   color: #e8fdff;
-  top: 0;
-  left: 0;
   height: 80px;
   width: 100%;
   background-color: #00a087;
@@ -20,4 +18,3 @@ nav {
 	font-size: 200%;
 	float: left;
 }
-
