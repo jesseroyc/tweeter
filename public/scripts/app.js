@@ -6,7 +6,6 @@ $(document).ready(function (){
 	slideComposeOnClick();
 
 	$(formId).on('submit', function(event) {
-
 		event.preventDefault();
 
 		if($(formMessage).val().length > 140) {
@@ -28,6 +27,7 @@ $(document).ready(function (){
 
 
 	updateTweets(formId);
+
 
 	function slideComposeOnClick() {
 		$( ".compose" ).click( function() {

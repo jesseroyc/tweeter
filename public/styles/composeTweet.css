@@ -43,6 +43,13 @@
 	color: #369664;
 	border-radius: 4px;
 	background: #FCFCFC;
+  cursor: pointer;
+}
+
+.compose:active { 
+  -webkit-filter: brightness(0.90);
+  -moz-filter: brightness(0.90);
+  filter: brightness(0.90);
 }
 
 .btnName {
