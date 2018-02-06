@@ -1,9 +1,9 @@
 'use strict'
 
-const PORT = 8080
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
+const PORT        = 8080
+const express     = require('express')
+const bodyParser  = require('body-parser')
+const app         = express()
 const MongoClient = require('mongodb').MongoClient
 const MONGODB_URI = 'mongodb://localhost:27017/tweeter'
 
@@ -15,7 +15,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.error(`Failed to connect: ${MONGODB_URI}`)
     throw err
   }
-
+  console.log(`Database listen at: ${MONGODB_URI}`)
   const DataHelpers = require('./lib/data-helpers.js')(db)
   const tweetsRoutes = require('./routes/tweets')(DataHelpers)
 
