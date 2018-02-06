@@ -5,41 +5,34 @@
  */
 
 html {
-box-sizing: border-box;
-
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
-box-sizing: inherit;
-
+  box-sizing: inherit;
 }
 
 * {
-position: relative;
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-border: 0;
-
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
 }
 
 
 body {
-font-family: 'Roboto Condensed', sans-serif;
--ms-text-size-adjust:  100%;
--webkit-text-size-adjust:  100%;
-color:  #244751;
-background-color:  #eee;
-
+  font-family: 'Roboto Condensed', sans-serif;
+  -ms-text-size-adjust:  100%;
+  -webkit-text-size-adjust:  100%;
+  color:  #244751;
+  background-color:  #eee;
 }
 
 #white-canvas {
-background: white;
-margin: auto;
-width: 28em;
-height: 20em;	
-padding: 1em;
-
+  background: white;
+  margin: auto;
+  padding-top: 1em;
+  width: 28em;
+  height: 20em;	
 }
-
-*/

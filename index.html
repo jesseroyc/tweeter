@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Meta Information -->
+        <meta charset="utf-8">
+        <title>Tweeter - Home Page</title>
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+        <!-- App CSS -->
+        <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+        <!-- nav CSS -->
+        <link rel="stylesheet" href="/styles/nav.css" type="text/css" />    
+
+        <!-- composeTweet CSS -->
+        <link rel="stylesheet" href="/styles/composeTweet.css" type="text/css" />
+
+        <!-- Dynamic Tweets -->
+        <link rel="stylesheet" href="/styles/dynamicTweets.css" type="text/css" />
+
+        <!-- External JS -->
+        <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+
+        <!-- Require JS -->
+        <script data-main="js/app.js" src="js/require.js"></script>
+
+        <!-- App JS -->
+        <script type="text/javascript" src="/scripts/app.js"></script>
+
+        <!-- Char Counter JS -->
+        <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>  
+    </head>
+
+    <body>
+        <nav class="nav_bar">
+            <img id="logo" src="/images/bird.png">
+            <span id="header">Tweeter</span>
+            <div class="compose">
+                <p class="btnName">Compose</p>
+            </div>
+        </nav>
+            <main id="white-canvas">
+                <div id="myDropdown" class="dropdown-content">
+                    <div id="post-new-tweet" class="hide">
+                        <h2 id = "compose-new-tweet-header-underline" class="hide">Compose Tweet</h2>
+                        <form id="submit-tweet" class="hide" method="POST" action="/tweets">
+                            <textarea id="new-tweet-textarea" class="hide" name="text" placeholder="What are you humming about?"></textarea>
+                            <input id="submit-new-tweet-button" class="hide" type="submit" value="Tweet">
+                            <span id="char-counter" class="hide">140</span>
+                        </form>
+                    </div>
+                </div>
+            <container id="tweet-container">
+
+                <!-- Tweets are inserted here -->
+
+            </container>
+        </main>
+    </body>
+</html>

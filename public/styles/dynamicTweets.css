@@ -1,63 +1,64 @@
 #top-styling-of-tweet {
-	padding: 0.3em;
-	border: 1px solid #c6c6c6;
-	border-radius: 3px;
-	background: #dedede;
-	position: absolute;
-	width: 26em;
-	height: 4em;
+  margin: 1em;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
+  background: #dedede;
+  position: absolute;
+  width: 26em;
+  height: 4em;
 }
 
 .avatar {
-	float: left;
-	border-radius: 0.75em;
-	border: 1px solid #c6c6c6;
+  margin: 0.3em;
+  float: left;
+  border-radius: 0.75em;
+  border: 1px solid #c6c6c6;
 }
 
 .username {
-	padding-top: 0.2em;
-	padding-left: 0.2em;
-	font-size: 180%;
-	margin: auto;
-	float: left;
+  margin: 0.3em;
+  font-size: 180%;
+  float: left;
 }
 
 .tweeter-handle {
-	font-color: #e9e9e9;
-	float:right;
-	padding:0.3em 0.5em;
+  font-color: #e9e9e9;
+  float:right;
+  margin:0.3em 0.5em;
 }
 
 #centre-styling-of-tweet {
-	border: 1px solid #c9c9c9;
-	background: white;
-	position: absolute;
-	right:-0.01em;
-	top: 3.9em;
-	width: 26em;
-	height: 4.5em;
-	word-wrap: break-word;
+  margin: 1em;
+  border: 1px solid #c9c9c9;
+  background: white;
+  position: absolute;
+  right:-0.01em;
+  top: 3.9em;
+  width: 26em;
+  height: 4.5em;
+  word-wrap: break-word;
 }
 
 .tweet-message {
-	padding:0.4em;
-	font-size:15px;
+  margin:0.4em;
+  font-size:15px;
 }
 
 #bottom-styling-of-tweet {
-    border: 1px solid #cccccc;
-	border-radius: 3px;
-	background: #f8f8f8;
-	position: absolute;
-	right:-0.01em;
-	top: 7.7em;
-	width: 26em;
-	height: 1.75em;
+  margin: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background: #f8f8f8;
+  position: absolute;
+  right:-0.01em;
+  top: 7.7em;
+  width: 26em;
+  height: 1.75em;
 }
 
 .timestamp {
-	font-size: 12px;
-	padding:0.4em;
+  font-size: 12px;
+  margin:0.4em;
 }
 
 section:hover {

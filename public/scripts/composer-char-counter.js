@@ -8,8 +8,6 @@ $(function() {
     event.preventDefault();
     inputString.startCounterWithParams(140, sectionElementId, textareaElementIdName);
 
-    console.log(inputString.length, inputString.remaining, inputString.allowed);
-
     if(inputString.length > inputString.allowed) {
       $(this).find('#char-counter')
              .text(inputString.remaining)
