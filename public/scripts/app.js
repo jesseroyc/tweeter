@@ -50,27 +50,27 @@ $(document).ready(function () {
   function createTweetElement (tweet) {
     let htmlStr = ''
 
-    htmlStr = `<section class="${tweet.user.handle.substr(1)}">
-               <div id="top-styling-of-tweet">
-    <img class="avatar" src="${tweet.user.avatars.small}">
-    <h1 class="username">
-    ${tweet.user.name}
-    </h1>
-    <p class="tweeter-handle">
-    ${tweet.user.handle}
-    </p>
-    </div>
-    <div id="centre-styling-of-tweet">
-    <p class="tweet-message">
-    ${escape(tweet.content.text)}
-    </p>
-    </div>
-    <div id="bottom-styling-of-tweet">
-    <p class="timestamp">
-    enerateConvenientTime(tweet)
-    </p>
-    </div>
-    </section>`;
+    htmlStr =  `<section class="${tweet.user.handle.substr(1)}">
+                  <div id="top-styling-of-tweet">
+                    <img class="avatar" src="${tweet.user.avatars.small}">
+                    <h1 class="username">
+                      ${tweet.user.name}
+                    </h1>
+                    <p class="tweeter-handle">
+                      ${tweet.user.handle}
+                    </p>
+                  </div>
+                  <div id="centre-styling-of-tweet">
+                    <p class="tweet-message">
+                      ${escape(tweet.content.text)}
+                    </p>
+                  </div>
+                  <div id="bottom-styling-of-tweet">
+                    <p class="timestamp">
+                      enerateConvenientTime(tweet)
+                    </p>
+                  </div>
+                </section>`;
 
     return htmlStr
   }
