@@ -1,4 +1,4 @@
-#top-styling-of-tweet {
+.top-styling-of-tweet {
   margin: 1em;
   border: 1px solid #c6c6c6;
   border-radius: 3px;
@@ -27,7 +27,7 @@
   margin:0.3em 0.5em;
 }
 
-#centre-styling-of-tweet {
+.centre-styling-of-tweet {
   margin: 1em;
   border: 1px solid #c9c9c9;
   background: white;
@@ -44,7 +44,7 @@
   font-size:15px;
 }
 
-#bottom-styling-of-tweet {
+.bottom-styling-of-tweet {
   margin: 1em;
   border: 1px solid #cccccc;
   border-radius: 3px;

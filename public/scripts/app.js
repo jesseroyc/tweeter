@@ -51,7 +51,7 @@ $(document).ready(function () {
     let htmlStr = ''
 
     htmlStr =  `<section class="${tweet.user.handle.substr(1)}">
-                  <div id="top-styling-of-tweet">
+                  <div class="top-styling-of-tweet">
                     <img class="avatar" src="${tweet.user.avatars.small}">
                     <h1 class="username">
                       ${tweet.user.name}
@@ -60,12 +60,12 @@ $(document).ready(function () {
                       ${tweet.user.handle}
                     </p>
                   </div>
-                  <div id="centre-styling-of-tweet">
+                  <div class="centre-styling-of-tweet">
                     <p class="tweet-message">
                       ${escape(tweet.content.text)}
                     </p>
                   </div>
-                  <div id="bottom-styling-of-tweet">
+                  <div class="bottom-styling-of-tweet">
                     <p class="timestamp">
                       ${generateConvenientTime(tweet)}
                     </p>
@@ -124,31 +124,50 @@ $(document).ready(function () {
 
   function main () {
     let formId = '#submit-tweet'
-    let formMessage = '#new-tweet-textarea[name|="text"]'
-    let formText = $('#new-tweet-textarea[name|="text"]').val()
 
     slideComposeOnClick()
 
     $(formId).on('submit', function (event) {
+      let formId = '#submit-tweet'
+      let textareaElementIdName = '#new-tweet-textarea[name|="text"]'
+      let formText = $('#new-tweet-textarea[name|="text"]').val()
       event.preventDefault()
 
       if (formText.length > 140) {
+
         alert(`Message is longer than 140 characters, ${formText.length}.`)
         return 0
-      }
-      if (formText === '') {
+
+      } else if (isEmptyOrUndefined(formText)) {
+
         alert(`Please write a message before attempting to tweet!`)
         return 0
-      }
-      if (formText === false) {
+
+      } else if (formText === false) {
+
         alert(`Message is invalid.`)
         return 0
+
+      } else {
+
+        submitTweetsClearTextField(formId, textareaElementIdName)
       }
 
-      submitTweetsClearTextField(formId, formMessage)
     })
 
     updateTweets(formId)
+
+    function isEmptyOrUndefined (str){      
+      return ((typeof str== 'undefined')   
+            ||(str == null)                
+            ||(str == false)
+            ||(str.length == 0)            
+            ||(str == "")                  
+            ||(str.replace(/\s/g,"") == "")
+            ||(!/[^\s]/.test(str))         
+            ||(/^\s*$/.test(str))           
+      );
+    }
   }
 
   main()
