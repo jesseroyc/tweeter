@@ -12,11 +12,11 @@ $(document).ready(function () {
   function dynamicallyRenderExtraCSS (tweet, cssIncrementerRefrence) {
     let scaledTweetPostion = cssIncrementerRefrence * 10
     $('<style>').prop('type', 'text/css')
-      .html(`${convertHandle(tweet.user.handle)} {\
+                .html(`${convertHandle(tweet.user.handle)} {\
                   position: relative;\
                   top: ${scaledTweetPostion}em;\
                   }`)
-      .appendTo('head')
+                .appendTo('head')
   }
 
   function renderPredefinedCSS (htmlToRender) {
@@ -67,7 +67,7 @@ $(document).ready(function () {
                   </div>
                   <div id="bottom-styling-of-tweet">
                     <p class="timestamp">
-                      enerateConvenientTime(tweet)
+                      ${generateConvenientTime(tweet)}
                     </p>
                   </div>
                 </section>`;
@@ -79,7 +79,7 @@ $(document).ready(function () {
     let tweetElementHtml
     let positionIncrementer = 0
 
-    tweets.reverse().forEach((tweet) => {
+    tweets.forEach((tweet) => {
       tweetElementHtml = createTweetElement(tweet)
 
       renderPredefinedCSS(tweetElementHtml)
@@ -136,11 +136,11 @@ $(document).ready(function () {
         alert(`Message is longer than 140 characters, ${formText.length}.`)
         return 0
       }
-      if ($(formMessage).val() === '') {
+      if (formText === '') {
         alert(`Please write a message before attempting to tweet!`)
         return 0
       }
-      if ($(formMessage).val() === false) {
+      if (formText === false) {
         alert(`Message is invalid.`)
         return 0
       }
