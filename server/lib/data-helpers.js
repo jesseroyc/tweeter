@@ -8,7 +8,7 @@ module.exports = function makeDataHelpers (db) {
         if (err) {
           res.status(500).json({ error: err.message })
         } else {
-          callback(err, res)
+          callback(null, true);
         }
       });
     },

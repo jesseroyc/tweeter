@@ -34,12 +34,12 @@ $(document).ready(function () {
     let timePosted = Math.floor((Date.now() / 1000) - (tweet.created_at / 1000))
     let timeText = `Updated ${timePosted} seconds ago`
 
-    if (timePosted > 3153600) {
-      timeText = `Updated ${Math.floor(timePosted / 3153600)} years ago`
-    } else if (timePosted > 8640) {
-      timeText = `Updated ${Math.floor(timePosted / 8640)} days ago`
-    } else if (timePosted > 360) {
-      timeText = `Updated ${Math.floor(timePosted / 360)} hours ago`
+    if (timePosted > 31536000) {
+      timeText = `Updated ${Math.floor(timePosted / 31536000)} years ago`
+    } else if (timePosted > 86400) {
+      timeText = `Updated ${Math.floor(timePosted / 86400)} days ago`
+    } else if (timePosted > 3600) {
+      timeText = `Updated ${Math.floor(timePosted / 3600)} hours ago`
     } else if (timePosted > 60) {
       timeText = `Updated ${Math.floor(timePosted / 60)} minutes ago`
     }
@@ -66,6 +66,11 @@ $(document).ready(function () {
                     </p>
                   </div>
                   <div class="bottom-styling-of-tweet">
+                    <div class="hooverIcons">
+                      <img class="flag" src="../../images/flag.png">
+                      <img class="heart" src="../..//images/heart.png">
+                      <img class="repeat" src="../..//images/repeat.png">
+                    </div>
                     <p class="timestamp">
                       ${generateConvenientTime(tweet)}
                     </p>

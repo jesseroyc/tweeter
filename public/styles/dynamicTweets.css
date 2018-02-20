@@ -61,6 +61,28 @@
   margin:0.4em;
 }
 
+.flag {
+  padding-top: 3px;
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+
+.heart {
+  padding-top: 3px;
+  padding-left: 2px;
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+
+.repeat {
+  padding-top: 4px;
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+
 section:hover {
   -webkit-filter: brightness(0.95);
   -moz-filter: brightness(0.95);
